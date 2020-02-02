@@ -9,6 +9,8 @@ public class AudioController : MonoBehaviour
 
     [SerializeField] AudioClip mainMenuMusic;
     [SerializeField] AudioClip shopMusic;
+    private AudioClip ingredientSound;
+    [SerializeField] AudioClip[] incredientSounds;
 
     public static AudioController instance;
 
@@ -36,5 +38,16 @@ public class AudioController : MonoBehaviour
     public void PlaySoundEffect(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayRandomIngredientDrop()
+    {
+        if (incredientSounds.Length > 0)
+        {
+            int index = Random.Range(0, incredientSounds.Length);
+            ingredientSound = incredientSounds[index];
+            audioSource.clip = ingredientSound;
+            audioSource.Play();
+        }
     }
 }
