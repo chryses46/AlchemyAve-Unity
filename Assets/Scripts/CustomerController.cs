@@ -19,8 +19,6 @@ public class CustomerController : MonoBehaviour
     public bool questComplete = false;
     public bool dialogueBoxAction = false;
 
-    public string neededPotion;
-
     public void Update()
     {
         if(customerObject)
@@ -38,7 +36,6 @@ public class CustomerController : MonoBehaviour
     public void GetNewCustomer(CustomerObject shopVisitor)
     {
         customerObject = shopVisitor;
-        neededPotion = shopVisitor.neededPotion;
     }
 
     public void SetCustomerName(string customerName)

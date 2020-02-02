@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 120352232}
   - component: {fileID: 120352234}
   - component: {fileID: 120352235}
+  - component: {fileID: 120352236}
   m_Layer: 5
   m_Name: JarOfEyeballsImage
   m_TagString: Untagged
@@ -576,6 +577,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 135.47021, y: 161.21375}
   m_EdgeRadius: 0
+--- !u!114 &120352236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120352230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: eyeball
 --- !u!1 &180919602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,8 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientName: 
-  matchingPotion: 
+  ingredientName: bones
 --- !u!1 &421625059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1232,10 @@ MonoBehaviour:
   potionAcceptDialogue: Thank ya.
   questCompleteDialogue: "I really appreciate it! Hope I don\u2019t scare Big Bessie\u2019s
     calf when I get home\u2026"
-  neededPotion: wolfCure
+  neededIngredients:
+  - heart
+  - eyeball
+  - bones
   isInShop: 0
 --- !u!111 &421625065
 Animation:
@@ -1299,6 +1315,7 @@ GameObject:
   - component: {fileID: 449706318}
   - component: {fileID: 449706320}
   - component: {fileID: 449706321}
+  - component: {fileID: 449706322}
   m_Layer: 5
   m_Name: MushroomsImage
   m_TagString: Untagged
@@ -1399,6 +1416,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 181.24835, y: 112.57892}
   m_EdgeRadius: 0
+--- !u!114 &449706322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449706316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: mushroom
 --- !u!1 &510514738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1749,10 @@ MonoBehaviour:
   - M'um m'aloo. Yukusu kenza keena. Kuh kiminay po luza? Ikee go cona.
   potionAcceptDialogue: Taa baa! Ubanya!
   questCompleteDialogue: Mob un loo.
-  neededPotion: fish
+  neededIngredients:
+  - mushroom
+  - nightshade
+  - eyeball
   isInShop: 0
 --- !u!114 &603081616
 MonoBehaviour:
@@ -2238,7 +2271,10 @@ MonoBehaviour:
   - Annoyed grunt.
   potionAcceptDialogue: Grunt of acceptance.
   questCompleteDialogue: (Fist bumps you)
-  neededPotion: golem
+  neededIngredients:
+  - green
+  - mushroom
+  - heart
   isInShop: 0
 --- !u!114 &829758396
 MonoBehaviour:
@@ -2457,7 +2493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.61039585, y: 0.34729633}
   m_AnchorMax: {x: 0.8172084, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 4.220001}
+  m_AnchoredPosition: {x: -1, y: 4.2199707}
   m_SizeDelta: {x: -5.100006, y: 4.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &967749508
@@ -2537,6 +2573,7 @@ GameObject:
   - component: {fileID: 969897887}
   - component: {fileID: 969897889}
   - component: {fileID: 969897890}
+  - component: {fileID: 969897891}
   m_Layer: 5
   m_Name: bottle3Image
   m_TagString: Untagged
@@ -2637,6 +2674,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 102.56665, y: 178.81589}
   m_EdgeRadius: 0
+--- !u!114 &969897891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969897885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: jar
 --- !u!1 &988136894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,6 +2875,7 @@ GameObject:
   - component: {fileID: 1107549939}
   - component: {fileID: 1107549941}
   - component: {fileID: 1107549942}
+  - component: {fileID: 1107549943}
   m_Layer: 5
   m_Name: nightShadeImage
   m_TagString: Untagged
@@ -2925,6 +2976,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 227.00586, y: 254.19379}
   m_EdgeRadius: 0
+--- !u!114 &1107549943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107549937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: nightshade
 --- !u!1 &1190151174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,7 +3036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -51}
+  m_AnchoredPosition: {x: 33, y: -62}
   m_SizeDelta: {x: 1471.1, y: 839.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190151176
@@ -3126,6 +3190,7 @@ GameObject:
   - component: {fileID: 1215252534}
   - component: {fileID: 1215252536}
   - component: {fileID: 1215252537}
+  - component: {fileID: 1215252538}
   m_Layer: 5
   m_Name: heartImage
   m_TagString: Untagged
@@ -3226,6 +3291,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 218.42865, y: 176.00055}
   m_EdgeRadius: 0
+--- !u!114 &1215252538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215252532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: heart
 --- !u!1 &1250178661
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,6 +3317,7 @@ GameObject:
   - component: {fileID: 1250178663}
   - component: {fileID: 1250178665}
   - component: {fileID: 1250178666}
+  - component: {fileID: 1250178667}
   m_Layer: 5
   m_Name: bottle1Image
   m_TagString: Untagged
@@ -3339,6 +3418,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 83.96643, y: 174.0968}
   m_EdgeRadius: 0
+--- !u!114 &1250178667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250178661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: green
 --- !u!1 &1268212839
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,7 +5275,10 @@ MonoBehaviour:
   - "Help me doc! I\u2019m Dyin! You gotta do somethin"
   potionAcceptDialogue: "I\u2019ll pay you back ten fold."
   questCompleteDialogue: You saved my life! I can live my life in peace now.
-  neededPotion: ghost
+  neededIngredients:
+  - green
+  - nightshade
+  - lamp
   isInShop: 0
 --- !u!114 &1928498171
 MonoBehaviour:
@@ -5612,6 +5707,7 @@ GameObject:
   - component: {fileID: 1983241400}
   - component: {fileID: 1983241402}
   - component: {fileID: 1983241403}
+  - component: {fileID: 1983241404}
   m_Layer: 5
   m_Name: bottle2Image
   m_TagString: Untagged
@@ -5712,6 +5808,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 178.38708, y: 152.63428}
   m_EdgeRadius: 0
+--- !u!114 &1983241404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983241398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: lamp
 --- !u!1 &1994076102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5879,6 +5988,7 @@ GameObject:
   - component: {fileID: 1994642868}
   - component: {fileID: 1994642870}
   - component: {fileID: 1994642871}
+  - component: {fileID: 1994642872}
   m_Layer: 0
   m_Name: fishImage
   m_TagString: Untagged
@@ -5979,6 +6089,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 175.94916, y: 118.30243}
   m_EdgeRadius: 0
+--- !u!114 &1994642872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994642866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479cf180a16fe034d84cde5c3b7f05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: fish
 --- !u!1 &2006148448
 GameObject:
   m_ObjectHideFlags: 0
@@ -6535,7 +6658,6 @@ MonoBehaviour:
   customerObject: {fileID: 0}
   questComplete: 0
   dialogueBoxAction: 0
-  neededPotion: 
 --- !u!1001 &4395677582922014706
 PrefabInstance:
   m_ObjectHideFlags: 0
