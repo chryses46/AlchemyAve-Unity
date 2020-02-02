@@ -27,14 +27,6 @@ public class GameController : MonoBehaviour
     void Update()
     {
         CheckForControllers();
-
-        if(StateController.instance.gameState == StateController.State.Play)
-        {
-            if(!GetComponent<CustomerSpawner>().customerInShop)
-            {
-                GetComponent<CustomerSpawner>().SpawnCustomer();
-            }
-        }
     }
 
     private void SetTimeScale(float scale)
@@ -48,6 +40,7 @@ public class GameController : MonoBehaviour
         UIController.instance.EnableMainMenuUI(false);
         UIController.instance.EnableGameUICanvas(true);
         StateController.instance.gameState = StateController.State.Play;
+        GetComponent<CustomerSpawner>().SpawnCustomer();
         
         SetTimeScale(1);
 
@@ -106,6 +99,39 @@ public class GameController : MonoBehaviour
         }
             
     }
+
+    
+
+    public void ClosePotionWin()
+    {
+        UIController.instance.ShowSuccessPotionWindow(false);
+        FindObjectOfType<Cauldron>().win = false;
+        // reset transforms of all ingrediends
+        UIController.instance.DisplayCauldronCloseUp(false);
+        UIController.instance.DisplayBackOfShop(false);
+        UIController.instance.DisplayFrontOfShop(true);
+        CustomerController.instance.AcceptPotionQuestCompleteDialogue();
+
+        if(!CustomerController.instance.isWaiting)
+        {
+            CustomerController.instance.QuestCompleteDialogue();
+
+            if(CustomerSpawner.instance.currentCustomer < CustomerSpawner.instance.customerObjects.Length)
+            {
+                CustomerSpawner.instance.currentCustomer ++;
+            }
+            else
+            { 
+                //game over
+            }
+        }
+
+        
+    }
+        
+        
+
+
 
     private void CheckForControllers()
     {

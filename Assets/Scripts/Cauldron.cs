@@ -18,13 +18,13 @@ public class Cauldron : MonoBehaviour
 
    int currentNumberOfIngredients = 0;
 
-   bool win = false;
+   public bool win = false;
 
    void Update()
    {
          if(currentNumberOfIngredients == INGREDIENDS_NEEDED & win != true)
          {
-            Debug.Log("You Win!");
+            UIController.instance.ShowSuccessPotionWindow(true);
             win = true;
          }
    }

@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
     public Canvas cauldronCloseUp;
     [SerializeField] Image backOfShopImage;
     public Image potionBook;
+
+    public Image successPotion;
     [SerializeField] Image dialogueBox;
     [SerializeField] Sprite gamePadStartSprite;
     [SerializeField] Sprite gamePadCancelSprite;
@@ -88,7 +90,11 @@ public class UIController : MonoBehaviour
 
     public void ShowPotionBook(bool isActive)
     {
-        Debug.Log("click");
         potionBook.gameObject.SetActive(isActive);
+    }
+
+    public void ShowSuccessPotionWindow(bool isActive)
+    {
+        successPotion.gameObject.SetActive(isActive);
     }
 }
