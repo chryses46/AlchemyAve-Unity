@@ -69,6 +69,44 @@ public class GameController : MonoBehaviour
         SetTimeScale(1);
     }
 
+    public void GoToBackOfShop()
+    {
+        UIController.instance.DisplayFrontOfShop(false);
+        UIController.instance.DisplayBackOfShop(true);
+    }
+
+    public void GoToFrontOfShop()
+    {
+        UIController.instance.DisplayBackOfShop(false);
+        UIController.instance.DisplayFrontOfShop(true);
+    }
+
+    public void DisplayPotionBook()
+    {
+        if(UIController.instance.potionBook.gameObject.activeSelf)
+        {
+            UIController.instance.ShowPotionBook(false);
+        }
+        else
+        {
+            UIController.instance.ShowPotionBook(true);
+        }
+        
+    }
+
+    public void ShowCauldronCloseUp()
+    {
+        if(!UIController.instance.cauldronCloseUp.gameObject.activeSelf)
+        {
+            UIController.instance.DisplayCauldronCloseUp(true);
+        }    
+        else
+        {
+            UIController.instance.DisplayCauldronCloseUp(false);
+        }
+            
+    }
+
     private void CheckForControllers()
     {
         // Find a PlayerIndex, for a single player game

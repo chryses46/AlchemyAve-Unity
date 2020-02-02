@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] Canvas MainMenuUICanvas;
-    [SerializeField] Canvas GameUICanvas;
-    [SerializeField] Canvas PauseMenuUICanvas;
-    [SerializeField] Image DialogueBox;
+    [SerializeField] Canvas mainMenuUICanvas;
+    [SerializeField] Canvas gameUICanvas;
+    [SerializeField] Canvas pauseMenuUICanvas;
+    [SerializeField] GameObject frontOfShopGameObject;
+    public Canvas cauldronCloseUp;
+    [SerializeField] Image backOfShopImage;
+    public Image potionBook;
+    [SerializeField] Image dialogueBox;
     [SerializeField] Sprite gamePadStartSprite;
     [SerializeField] Sprite gamePadCancelSprite;
     [SerializeField] Sprite keyBoardStartSprite;
@@ -49,21 +53,42 @@ public class UIController : MonoBehaviour
 
     public void EnableMainMenuUI(bool isActive)
     {
-        MainMenuUICanvas.gameObject.SetActive(isActive);
+        mainMenuUICanvas.gameObject.SetActive(isActive);
     }
 
     public void EnableGameUICanvas(bool isActive)
     {
-        GameUICanvas.gameObject.SetActive(isActive);
+        gameUICanvas.gameObject.SetActive(isActive);
     }
 
     public void EnablePauseMenuUICanvas(bool isActive)
     {
-        PauseMenuUICanvas.gameObject.SetActive(isActive);
+        pauseMenuUICanvas.gameObject.SetActive(isActive);
     }
 
     public void DisplayDialogueBox(bool isActive)
     {
-        DialogueBox.gameObject.SetActive(isActive);
+        dialogueBox.gameObject.SetActive(isActive);
+    }
+
+    public void DisplayBackOfShop(bool isActive)
+    {
+        backOfShopImage.gameObject.SetActive(isActive);
+    }
+
+    public void DisplayFrontOfShop(bool isActive)
+    {
+        frontOfShopGameObject.gameObject.SetActive(isActive);
+    }
+
+    public void DisplayCauldronCloseUp(bool isActive)
+    {
+        cauldronCloseUp.gameObject.SetActive(isActive);
+    }
+
+    public void ShowPotionBook(bool isActive)
+    {
+        Debug.Log("click");
+        potionBook.gameObject.SetActive(isActive);
     }
 }

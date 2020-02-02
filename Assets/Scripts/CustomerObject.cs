@@ -11,6 +11,7 @@ public class CustomerObject : MonoBehaviour
     public string[] dialogueMessages;
     public string potionAcceptDialogue;
     public string questCompleteDialogue;
+    public string neededPotion;
 
     Animation anim;
 
