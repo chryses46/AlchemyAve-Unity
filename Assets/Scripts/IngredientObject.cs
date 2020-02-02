@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class IngredientObject : MonoBehaviour
 {
-   string ingredientName;
-   Sprite ingredientSprite;
-   string ingredientDetails;
-
-   
+   public string ingredientName;
 }

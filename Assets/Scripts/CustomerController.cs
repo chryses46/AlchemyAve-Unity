@@ -19,6 +19,8 @@ public class CustomerController : MonoBehaviour
     public bool questComplete = false;
     public bool dialogueBoxAction = false;
 
+    public bool isWaiting = false;
+
     public void Update()
     {
         if(customerObject)
@@ -43,21 +45,14 @@ public class CustomerController : MonoBehaviour
         DialogueController.instance.SetCustomerNameText(customerName);
     }
 
+
     public void CheckOnCustomers()
     {
         if(customerObject.customerName == "Werewolf")
         {
 
-            if(customerObject.GetCustomerSprite() == customerObject.customerImages[0])
-            {
-                //if animation is not playing
-                //play animation
-            }
-
             if(DialogueController.instance.dialogueTextToDisplay == "" && currentDialogueIteration < customerObject.dialogueMessages.Length && !dialogueBoxAction)
             {
-
-                Debug.Log(currentDialogueIteration);
 
                 if(currentDialogueIteration == 1)
                 {
@@ -78,11 +73,75 @@ public class CustomerController : MonoBehaviour
             }
             else if(DialogueController.instance.dialogueTextToDisplay != "" && dialogueBoxAction)
             {
-                StartCoroutine(WaitForText(12f));
+                if(!isWaiting)
+                {
+                    StartCoroutine(WaitForText(12f));
+                    isWaiting = true;
+                }
+                    
+            }
+            else if(currentDialogueIteration >= customerObject.dialogueMessages.Length)
+            {
+                DialogueController.instance.CloseDialogueBox();
             }
             
         }
+        else
+        {
+            if(DialogueController.instance.dialogueTextToDisplay == "" && currentDialogueIteration < customerObject.dialogueMessages.Length && !dialogueBoxAction)
+            {
+                SetCustomerName(customerObject.customerName);
 
+                DialogueController.instance.SetDialogueText(customerObject.dialogueMessages[currentDialogueIteration]);
+
+                DialogueController.instance.DialogeBoxManager();
+
+                dialogueBoxAction = true;
+            }
+            else if(DialogueController.instance.dialogueTextToDisplay != "" && dialogueBoxAction)
+            {
+                if(!isWaiting)
+                {
+                    StartCoroutine(WaitForText(12f));
+                    isWaiting = true;
+                }
+                    
+            }
+            else if(currentDialogueIteration >= customerObject.dialogueMessages.Length)
+            {
+                DialogueController.instance.CloseDialogueBox();
+            }
+        }
+    }
+
+    public void AcceptPotionQuestCompleteDialogue()
+    {
+        DialogueController.instance.SetDialogueText(customerObject.potionAcceptDialogue);
+        DialogueController.instance.DialogeBoxManager();
+
+        if (!isWaiting)
+        {
+            StartCoroutine(WaitForText(3f));
+            isWaiting = true;
+        }
+
+        DialogueController.instance.CloseDialogueBox();
+        questComplete = true;
+
+    }
+
+    public void QuestCompleteDialogue()
+    {
+        DialogueController.instance.SetDialogueText(customerObject.questCompleteDialogue);
+
+        DialogueController.instance.DialogeBoxManager();
+        Debug.Log(customerObject.questCompleteDialogue);
+
+        if (!isWaiting)
+        {
+            StartCoroutine(WaitForText(12f));
+            isWaiting = true;
+        }
     }
 
     IEnumerator WaitForText(float wait)
@@ -90,7 +149,16 @@ public class CustomerController : MonoBehaviour
         yield return new WaitForSeconds(wait);
         DialogueController.instance.SetDialogueText("");
         dialogueBoxAction = false;
-        currentDialogueIteration += 1;
+        isWaiting = false;
+        if(customerObject)
+        {
+          if(currentDialogueIteration < customerObject.dialogueMessages.Length)
+            {
+                currentDialogueIteration += 1;
+            }  
+        }
+        
+        
     }
 
 

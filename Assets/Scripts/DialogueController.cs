@@ -33,7 +33,9 @@ public class DialogueController : MonoBehaviour
     {
         if(!dialogueBox.activeSelf)
         {
-            StartCoroutine(SummonDialogueBox());
+            UIController.instance.DisplayDialogueBox(true);
+            customerNameTextBox.text = customerNameToDisplay;
+            dialogueTextBox.text = dialogueTextToDisplay;
         }
         else
         {
@@ -42,20 +44,12 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    IEnumerator SummonDialogueBox()
-    {
-        yield return new WaitForSeconds(2f);
-        UIController.instance.DisplayDialogueBox(true);
-        customerNameTextBox.text = customerNameToDisplay;
-        dialogueTextBox.text = dialogueTextToDisplay;
-    }
-
     public void CloseDialogueBox()
     {
         customerNameTextBox.text = null;
         dialogueTextBox.text = null;
         customerNameToDisplay = null;
         dialogueTextToDisplay = null;
-        UIController.instance.DisplayDialogueBox(false);
+        UIController.instance.DisplayDialogueBox(false); 
     }
 }
