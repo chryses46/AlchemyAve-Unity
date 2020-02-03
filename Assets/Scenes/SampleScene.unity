@@ -150,6 +150,7 @@ RectTransform:
   - {fileID: 1684553275}
   - {fileID: 1599863868}
   - {fileID: 421625060}
+  - {fileID: 1708655810}
   - {fileID: 1928498168}
   - {fileID: 829758393}
   - {fileID: 603081613}
@@ -843,7 +844,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24350297}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1293,11 +1294,9 @@ GameObject:
   m_Component:
   - component: {fileID: 421625060}
   - component: {fileID: 421625062}
-  - component: {fileID: 421625066}
   - component: {fileID: 421625061}
-  - component: {fileID: 421625063}
   - component: {fileID: 421625064}
-  - component: {fileID: 421625065}
+  - component: {fileID: 421625063}
   m_Layer: 5
   m_Name: Werewolf
   m_TagString: Untagged
@@ -1344,13 +1343,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ed50a8e4bdf72154185e14660b513580, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &421625062
 CanvasRenderer:
@@ -1370,10 +1369,10 @@ Animator:
   m_GameObject: {fileID: 421625059}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f2495b2f9ea6c644a13802e926f6d40, type: 2}
+  m_Controller: {fileID: 9100000, guid: dcf738ec6be51e747958eb59a5c15598, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1395,7 +1394,7 @@ MonoBehaviour:
   customerImages:
   - {fileID: 21300000, guid: ed50a8e4bdf72154185e14660b513580, type: 3}
   - {fileID: 21300000, guid: 6d36594b3e55b984a9bf343a48b0df65, type: 3}
-  ailment: Lyanthropy
+  ailment: Lycanthropy
   dialogueMessages:
   - "Hey there, I heard you\u2019re the alchemist that can cure curses. I was a simple
     farmer, but my farm got attacked by werewolves a few weeks ago. Got bit fendin\u2019
@@ -1403,7 +1402,7 @@ MonoBehaviour:
   - "Been appreciatin\u2019 the extra power but...I accidentally attacked my cow last
     night. Big Bessie did nothin\u2019 wrong, wolf in me just got rabid all of a sudden."
   - "Scared I can\u2019t hold it back again so I\u2019m here hopin\u2019 you could
-    fix me up? I\u2019ll pay you well."
+    fix me up?"
   potionAcceptDialogue: Thank ya.
   questCompleteDialogue: "I really appreciate it! Hope I don\u2019t scare Big Bessie\u2019s
     calf when I get home\u2026"
@@ -1412,71 +1411,6 @@ MonoBehaviour:
   - eyeball
   - bones
   isInShop: 0
---- !u!111 &421625065
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421625059}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 494d3fd694f811842b2d5d0e8f66e86a, type: 2}
-  m_Animations:
-  - {fileID: 0}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!212 &421625066
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421625059}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 7
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 7.81, y: 6.22}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &449706316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,7 +1556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &510514739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1951,6 +1885,7 @@ GameObject:
   - component: {fileID: 603081617}
   - component: {fileID: 603081616}
   - component: {fileID: 603081614}
+  - component: {fileID: 603081615}
   m_Layer: 5
   m_Name: Jawa
   m_TagString: Untagged
@@ -1970,7 +1905,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24350297}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14664584, y: 0.34918517}
   m_AnchorMax: {x: 0.81900007, y: 1}
@@ -2002,6 +1937,25 @@ MonoBehaviour:
   - nightshade
   - eyeball
   isInShop: 0
+--- !u!95 &603081615
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603081612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d169224024835b408afee9a3c433ac2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &603081616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,6 +2427,7 @@ GameObject:
   - component: {fileID: 829758397}
   - component: {fileID: 829758396}
   - component: {fileID: 829758394}
+  - component: {fileID: 829758395}
   m_Layer: 5
   m_Name: Golem
   m_TagString: Untagged
@@ -2492,7 +2447,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24350297}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18943751, y: 0.36400002}
   m_AnchorMax: {x: 0.82889587, y: 1}
@@ -2524,6 +2479,25 @@ MonoBehaviour:
   - mushroom
   - heart
   isInShop: 0
+--- !u!95 &829758395
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829758392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d169224024835b408afee9a3c433ac2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &829758396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3358,7 +3332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09260417, y: 0.09833333}
   m_AnchorMax: {x: 0.33239585, y: 0.46759263}
-  m_AnchoredPosition: {x: -1.5, y: 2.4000244}
+  m_AnchoredPosition: {x: -1.5, y: 2.3999023}
   m_SizeDelta: {x: -9, y: 8.700012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204352859
@@ -3865,7 +3839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8554167, y: 0.105518505}
   m_AnchorMax: {x: 0.8554167, y: 0.105518505}
-  m_AnchoredPosition: {x: 267.40002, y: 92.6}
+  m_AnchoredPosition: {x: 267.40002, y: 92.6001}
   m_SizeDelta: {x: 197, y: 211.3}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1276176875
@@ -4150,10 +4124,10 @@ RectTransform:
   m_Father: {fileID: 1592819551}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.76044035}
-  m_AnchorMax: {x: 0.36523774, y: 1}
+  m_AnchorMin: {x: 0.013814335, y: 0.7115382}
+  m_AnchorMax: {x: 0.36523774, y: 0.95800006}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1.8999939, y: -2.699997}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1389414275
 MonoBehaviour:
@@ -4168,25 +4142,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.1960784, g: 0.1960784, b: 0.1960784, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 2cc439accbd5d4046b78f4469b4510a4, type: 3}
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Name
 --- !u!222 &1389414276
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4531,13 +4505,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.1960784, g: 0.1960784, b: 0.1960784, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2cc439accbd5d4046b78f4469b4510a4, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -4549,7 +4523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Dialogue
 --- !u!222 &1514057026
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4646,6 +4620,7 @@ GameObject:
   - component: {fileID: 1592819551}
   - component: {fileID: 1592819553}
   - component: {fileID: 1592819552}
+  - component: {fileID: 1592819554}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -4667,12 +4642,12 @@ RectTransform:
   - {fileID: 1389414274}
   - {fileID: 1514057024}
   m_Father: {fileID: 24350297}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.72, y: -289}
-  m_SizeDelta: {x: 1014, y: 286}
+  m_AnchorMin: {x: 0.245, y: 0.105518505}
+  m_AnchorMax: {x: 0.7702292, y: 0.36400002}
+  m_AnchoredPosition: {x: 2.2200012, y: -2.5}
+  m_SizeDelta: {x: 5, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1592819552
 MonoBehaviour:
@@ -4687,7 +4662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4710,6 +4685,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592819550}
   m_CullTransparentMesh: 0
+--- !u!111 &1592819554
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592819550}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c545061cf6c0eba418ee4047af069ce6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c545061cf6c0eba418ee4047af069ce6, type: 2}
+  - {fileID: 7400000, guid: 6d8cb5e6e1d50f345bb6147731ea298e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1599863867
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,6 +5167,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703675573}
   m_CullTransparentMesh: 0
+--- !u!1 &1708655809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708655810}
+  - component: {fileID: 1708655812}
+  - component: {fileID: 1708655811}
+  m_Layer: 5
+  m_Name: WerewolfSweat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1708655810
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708655809}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1539059, y: 1.1539059, z: 1.1539059}
+  m_Children: []
+  m_Father: {fileID: 24350297}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.14664584, y: 0.34918517}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -140.84, y: 0}
+  m_SizeDelta: {x: -825.12006, y: 40.799927}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1708655811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708655809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6d36594b3e55b984a9bf343a48b0df65, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1708655812
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708655809}
+  m_CullTransparentMesh: 0
 --- !u!1 &1727040405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,7 +5271,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24350297}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8554167, y: 0.105518505}
   m_AnchorMax: {x: 0.8554167, y: 0.105518505}
@@ -5735,6 +5800,7 @@ GameObject:
   - component: {fileID: 1928498172}
   - component: {fileID: 1928498171}
   - component: {fileID: 1928498169}
+  - component: {fileID: 1928498170}
   m_Layer: 5
   m_Name: Ghost
   m_TagString: Untagged
@@ -5754,11 +5820,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24350297}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.321583, y: 0.28614816}
   m_AnchorMax: {x: 0.67700005, y: 1}
-  m_AnchoredPosition: {x: 1.2999878, y: 0.15008545}
+  m_AnchoredPosition: {x: 1.2999878, y: 0.15014648}
   m_SizeDelta: {x: -0.2000122, y: -0.2999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928498169
@@ -5786,6 +5852,25 @@ MonoBehaviour:
   - nightshade
   - lamp
   isInShop: 0
+--- !u!95 &1928498170
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928498167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d169224024835b408afee9a3c433ac2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1928498171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7132,6 +7217,16 @@ MonoBehaviour:
   backOfShopImage: {fileID: 630879592}
   potionBook: {fileID: 1190151176}
   successPotion: {fileID: 307491554}
+  ingredientObjects:
+  - {fileID: 348610224}
+  - {fileID: 1215252538}
+  - {fileID: 1107549943}
+  - {fileID: 449706322}
+  - {fileID: 120352236}
+  - {fileID: 1250178667}
+  - {fileID: 1994642872}
+  - {fileID: 1983241404}
+  - {fileID: 969897891}
   dialogueBox: {fileID: 1592819552}
   gamePadStartSprite: {fileID: 21300000, guid: 056499ef2d1bd864cb37413c93ab0b04, type: 3}
   gamePadCancelSprite: {fileID: 21300000, guid: 90e5af97ac159064f9023a391f814164,
@@ -7228,6 +7323,7 @@ MonoBehaviour:
   - {fileID: 1928498169}
   - {fileID: 829758394}
   - {fileID: 603081614}
+  timeUntilNextCustomer: 5
   customerInShop: 0
   waitingForCustomer: 0
   currentCustomer: 0
@@ -7243,76 +7339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d12f66a8d8a3b478dc1a4d4dce6515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  werewolfSweat: {fileID: 1708655811}
   customerObject: {fileID: 0}
   questComplete: 0
   dialogueBoxAction: 0
   isWaiting: 0
---- !u!1001 &4395677582922014706
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373594717008967676, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377548476543774479, guid: 77444f8f6c344e4438cba7fbc4ba95ee,
-        type: 3}
-      propertyPath: m_Name
-      value: DragAndDrop
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 77444f8f6c344e4438cba7fbc4ba95ee, type: 3}

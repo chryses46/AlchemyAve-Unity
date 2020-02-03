@@ -26,6 +26,7 @@ public class Cauldron : MonoBehaviour
          {
             UIController.instance.ShowSuccessPotionWindow(true);
             win = true;
+            currentNumberOfIngredients = 0;
          }
    }
 
@@ -35,20 +36,16 @@ public class Cauldron : MonoBehaviour
 
       if(other.gameObject.GetComponent<IngredientObject>())
       {
-
-         Debug.Log(other.gameObject.name);
-
          for(int i = 0; i< CustomerController.instance.customerObject.neededIngredients.Length; i++ )
          {
             if(other.gameObject.GetComponent<IngredientObject>().ingredientName == CustomerController.instance.customerObject.neededIngredients[i])
             {
                currentNumberOfIngredients += 1;
                Destroy(other.gameObject.GetComponent<DragAndDrop>());
-               Debug.Log(currentNumberOfIngredients);
             }
             else
             {
-               Debug.Log("You Lose!");
+
             }
          }
          

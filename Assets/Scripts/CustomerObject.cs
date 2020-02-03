@@ -13,9 +13,9 @@ public class CustomerObject : MonoBehaviour
     public string questCompleteDialogue;
     public string[] neededIngredients;
 
-    Animation anim;
-
     public bool isInShop = false;
+
+    Animator animator;
 
     Image image;
     float fadeInTarget = 255;
@@ -24,29 +24,30 @@ public class CustomerObject : MonoBehaviour
     void Awake()
     {
         image = GetComponent<Image>();
-        anim = GetComponent<Animation>();
+        if(GetComponent<Animator>())
+        {
+            animator = GetComponent<Animator>();
+        }
     }
 
     void Update()
     {
-        if(isInShop)
-            FadeUp();
     }
 
-    public void FadeUp()
+    public void FadeIn()
     {
-        var alpha = image.color.a;
-        alpha = Mathf.MoveTowards(alpha, fadeInTarget, Time.deltaTime);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        animator.Play("FadeIn");
+        // var alpha = image.color.a;
+        // alpha = Mathf.MoveTowards(alpha, fadeInTarget, Time.deltaTime);
+        // image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
     }
 
     public void FadeOut()
     {
-        var alpha = image.color.a;
-        alpha = Mathf.MoveTowards(alpha, fadeOutTarget, Time.deltaTime);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
-
-        isInShop = false;
+        animator.Play("FadeOut");
+        // var alpha = image.color.a;
+        // alpha = Mathf.MoveTowards(alpha, fadeOutTarget, Time.deltaTime);
+        // image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
     }
 
     public void SetCustomerSprite(Sprite sprite)
@@ -57,5 +58,17 @@ public class CustomerObject : MonoBehaviour
     public Sprite GetCustomerSprite()
     {
         return image.sprite;
+    }
+
+    public void StopAnimation()
+    {
+        image.sprite = customerImages[1];
+        animator.StopPlayback();
+        
+    }
+
+    public void StartAnimation()
+    {
+        animator.StartPlayback();
     }
 }

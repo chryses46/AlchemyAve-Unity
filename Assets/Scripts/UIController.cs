@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour
     public Image potionBook;
 
     public Image successPotion;
+
+    public IngredientObject[] ingredientObjects;
     [SerializeField] Image dialogueBox;
     [SerializeField] Sprite gamePadStartSprite;
     [SerializeField] Sprite gamePadCancelSprite;
@@ -48,11 +50,6 @@ public class UIController : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     public void EnableMainMenuUI(bool isActive)
     {
         mainMenuUICanvas.gameObject.SetActive(isActive);
@@ -71,6 +68,17 @@ public class UIController : MonoBehaviour
     public void DisplayDialogueBox(bool isActive)
     {
         dialogueBox.gameObject.SetActive(isActive);
+        
+        if(isActive)
+        {
+            dialogueBox.GetComponent<Animation>().GetClip("DialogueFade");
+        }
+        else
+        {
+            dialogueBox.GetComponent<Animation>().GetClip("DialogueFadeOut");
+        }
+            
+        dialogueBox.GetComponent<Animation>().Play();
     }
 
     public void DisplayBackOfShop(bool isActive)
@@ -96,5 +104,14 @@ public class UIController : MonoBehaviour
     public void ShowSuccessPotionWindow(bool isActive)
     {
         successPotion.gameObject.SetActive(isActive);
+
+        if(!isActive)
+        {
+            for(int i = 0; i < ingredientObjects.Length; i++)
+            {
+                ingredientObjects[i].ResetPosition();
+            }
+        }
+
     }
 }

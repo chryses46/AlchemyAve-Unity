@@ -106,27 +106,11 @@ public class GameController : MonoBehaviour
     {
         UIController.instance.ShowSuccessPotionWindow(false);
         FindObjectOfType<Cauldron>().win = false;
-        // reset transforms of all ingrediends
         UIController.instance.DisplayCauldronCloseUp(false);
         UIController.instance.DisplayBackOfShop(false);
         UIController.instance.DisplayFrontOfShop(true);
-        CustomerController.instance.AcceptPotionQuestCompleteDialogue();
 
-        if(!CustomerController.instance.isWaiting)
-        {
-            CustomerController.instance.QuestCompleteDialogue();
-
-            if(CustomerSpawner.instance.currentCustomer < CustomerSpawner.instance.customerObjects.Length)
-            {
-                CustomerSpawner.instance.currentCustomer ++;
-            }
-            else
-            { 
-                //game over
-            }
-        }
-
-        
+        CustomerController.instance.QuestCompleteDialogue();
     }
         
         
