@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class IngredientObject : MonoBehaviour
 {
    public string ingredientName;
@@ -19,6 +20,7 @@ public class IngredientObject : MonoBehaviour
 
    public void ResetPosition()
    {
+      DragAndDrop dragAndDrop = gameObject.AddComponent(typeof(DragAndDrop)) as DragAndDrop;
       rectTransform.transform.position = originalRectTransformPosition;
    }
 }

@@ -104,6 +104,7 @@ public class UIController : MonoBehaviour
     public void ShowSuccessPotionWindow(bool isActive)
     {
         successPotion.gameObject.SetActive(isActive);
+        
 
         if(!isActive)
         {
@@ -111,6 +112,8 @@ public class UIController : MonoBehaviour
             {
                 ingredientObjects[i].ResetPosition();
             }
+
+
         }
 
     }

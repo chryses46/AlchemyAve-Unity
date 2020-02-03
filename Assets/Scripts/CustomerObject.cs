@@ -36,7 +36,14 @@ public class CustomerObject : MonoBehaviour
 
     public void FadeIn()
     {
-        animator.Play("FadeIn");
+        if(!animator)
+        {
+            GetComponent<Animation>().GetClip("FadeIn");
+        }
+        else
+        {
+            animator.Play("FadeIn");
+        }
         // var alpha = image.color.a;
         // alpha = Mathf.MoveTowards(alpha, fadeInTarget, Time.deltaTime);
         // image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
@@ -44,7 +51,15 @@ public class CustomerObject : MonoBehaviour
 
     public void FadeOut()
     {
-        animator.Play("FadeOut");
+        if(!animator)
+        {
+            GetComponent<Animation>().GetClip("FadeOut");
+        }
+        else
+        {
+            animator.Play("FadeOut");
+        }
+        
         // var alpha = image.color.a;
         // alpha = Mathf.MoveTowards(alpha, fadeOutTarget, Time.deltaTime);
         // image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);

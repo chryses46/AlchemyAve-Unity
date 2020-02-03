@@ -1937,25 +1937,23 @@ MonoBehaviour:
   - nightshade
   - eyeball
   isInShop: 0
---- !u!95 &603081615
-Animator:
-  serializedVersion: 3
+--- !u!111 &603081615
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603081612}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d169224024835b408afee9a3c433ac2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 13fea8e5de8991649a8988ed38a4859f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ced3a517219e5be448e2d59aa4b6fabe, type: 2}
+  - {fileID: 7400000, guid: 13fea8e5de8991649a8988ed38a4859f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &603081616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,25 +2477,23 @@ MonoBehaviour:
   - mushroom
   - heart
   isInShop: 0
---- !u!95 &829758395
-Animator:
-  serializedVersion: 3
+--- !u!111 &829758395
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829758392}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d169224024835b408afee9a3c433ac2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 13fea8e5de8991649a8988ed38a4859f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ced3a517219e5be448e2d59aa4b6fabe, type: 2}
+  - {fileID: 7400000, guid: 13fea8e5de8991649a8988ed38a4859f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &829758396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5852,25 +5848,23 @@ MonoBehaviour:
   - nightshade
   - lamp
   isInShop: 0
---- !u!95 &1928498170
-Animator:
-  serializedVersion: 3
+--- !u!111 &1928498170
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928498167}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d169224024835b408afee9a3c433ac2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 13fea8e5de8991649a8988ed38a4859f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ced3a517219e5be448e2d59aa4b6fabe, type: 2}
+  - {fileID: 7400000, guid: 13fea8e5de8991649a8988ed38a4859f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1928498171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7341,6 +7335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   werewolfSweat: {fileID: 1708655811}
   customerObject: {fileID: 0}
+  currentDialogueIteration: 0
   questComplete: 0
   dialogueBoxAction: 0
   isWaiting: 0

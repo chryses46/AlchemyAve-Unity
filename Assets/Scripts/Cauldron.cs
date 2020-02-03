@@ -25,6 +25,7 @@ public class Cauldron : MonoBehaviour
          if(currentNumberOfIngredients == INGREDIENDS_NEEDED & win != true)
          {
             UIController.instance.ShowSuccessPotionWindow(true);
+            FindObjectOfType<SuccessPotion>().SetScreen();
             win = true;
             currentNumberOfIngredients = 0;
          }
