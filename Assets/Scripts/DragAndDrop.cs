@@ -12,7 +12,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     /// <param name="eventData">mouse pointer event data</param>
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
         lastMousePosition = eventData.position;
     }
  
@@ -42,12 +41,11 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     /// <param name="eventData"></param>
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
         //Implement your funtionlity here
     }
  
     /// <summary>
-    /// This methods will check is the rect transform is inside the screen or not
+    /// This method will check is the rect transform is inside the screen or not
     /// </summary>
     /// <param name="rectTransform">Rect Trasform</param>
     /// <returns></returns>
