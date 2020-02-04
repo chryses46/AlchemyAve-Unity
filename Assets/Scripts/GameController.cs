@@ -39,28 +39,32 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         UIController.instance.EnableMainMenuUI(false);
+
         UIController.instance.EnableGameUICanvas(true);
+
         StateController.instance.gameState = StateController.State.Play;
+
         GetComponent<CustomerSpawner>().SpawnCustomer();
         
         SetTimeScale(1);
 
     }
 
-
     public void PauseGame()
     {
-        UIController.instance.EnableGameUICanvas(false);
         UIController.instance.EnablePauseMenuUICanvas(true);
+
         StateController.instance.gameState = StateController.State.Pause;
+        
         SetTimeScale(0);
     }
 
     public void UnPauseGame()
     {
         UIController.instance.EnablePauseMenuUICanvas(false);
-        UIController.instance.EnableGameUICanvas(true);
+
         StateController.instance.gameState = StateController.State.Play;
+
         SetTimeScale(1);
     }
 
@@ -100,8 +104,6 @@ public class GameController : MonoBehaviour
         }
             
     }
-
-    
 
     public void ClosePotionWin()
     {

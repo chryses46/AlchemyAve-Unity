@@ -52,7 +52,6 @@ public class CustomerObject : MonoBehaviour
 
     public void CustomerHasLeft()
     {
-        Debug.Log("CustomerHasLeft called");
         CustomerController.instance.CustomerLeft();
     }
 }

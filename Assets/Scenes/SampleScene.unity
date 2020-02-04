@@ -1296,6 +1296,7 @@ GameObject:
   - component: {fileID: 421625061}
   - component: {fileID: 421625063}
   - component: {fileID: 421625064}
+  - component: {fileID: 421625065}
   m_Layer: 5
   m_Name: Werewolf
   m_TagString: Untagged
@@ -1409,6 +1410,18 @@ MonoBehaviour:
   - eyeball
   - bones
   isInShop: 0
+--- !u!114 &421625065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421625059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b378374d5620c94fa1cdea1f38c70ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &449706316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +1897,7 @@ GameObject:
   - component: {fileID: 603081616}
   - component: {fileID: 603081614}
   - component: {fileID: 603081615}
+  - component: {fileID: 603081618}
   m_Layer: 5
   m_Name: Jawa
   m_TagString: Untagged
@@ -1990,6 +2004,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603081612}
   m_CullTransparentMesh: 0
+--- !u!114 &603081618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603081612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b378374d5620c94fa1cdea1f38c70ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &630879590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,6 +2452,7 @@ GameObject:
   - component: {fileID: 829758396}
   - component: {fileID: 829758394}
   - component: {fileID: 829758395}
+  - component: {fileID: 829758398}
   m_Layer: 5
   m_Name: Golem
   m_TagString: Untagged
@@ -2532,6 +2559,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829758392}
   m_CullTransparentMesh: 0
+--- !u!114 &829758398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829758392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b378374d5620c94fa1cdea1f38c70ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &863936122
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,6 +5732,7 @@ GameObject:
   - component: {fileID: 1928498171}
   - component: {fileID: 1928498169}
   - component: {fileID: 1928498170}
+  - component: {fileID: 1928498173}
   m_Layer: 5
   m_Name: Ghost
   m_TagString: Untagged
@@ -5799,6 +5839,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928498167}
   m_CullTransparentMesh: 0
+--- !u!114 &1928498173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928498167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b378374d5620c94fa1cdea1f38c70ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928612470
 GameObject:
   m_ObjectHideFlags: 0
@@ -7211,6 +7263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerObjects:
+  - {fileID: 421625064}
   - {fileID: 1928498169}
   - {fileID: 829758394}
   - {fileID: 603081614}

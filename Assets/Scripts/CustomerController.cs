@@ -118,14 +118,14 @@ public class CustomerController : MonoBehaviour
             else if(currentDialogueIteration >= customerObject.dialogueMessages.Length)
             {
                 DialogueController.instance.CloseDialogueBox();
+                
+                canSkipDialogue = false;
             }
         }
     }
 
     internal void CustomerLeft()
     {
-        customerObject.gameObject.SetActive(false);
-
         customerObject = null;
 
         customerArrived = false;
@@ -150,7 +150,7 @@ public class CustomerController : MonoBehaviour
         if (!isWaiting)
         {
             StartCoroutine(WaitForText(4f));
-            
+
             isWaiting = true;
         }
     }
