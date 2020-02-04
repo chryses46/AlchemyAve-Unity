@@ -10,7 +10,8 @@ public class AudioController : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField] AudioClip mainMenuMusic;
-    [SerializeField] AudioClip shopBell;
+    public AudioClip shopBell;
+    public AudioClip[] ingredientPlopSFX;
 
     void Awake()
     {
@@ -29,5 +30,12 @@ public class AudioController : MonoBehaviour
     public void PlaySoundEffect(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayIngredientEffect()
+    {
+        int effect = Random.Range(0,3);
+
+        audioSource.PlayOneShot(ingredientPlopSFX[effect]);
     }
 }

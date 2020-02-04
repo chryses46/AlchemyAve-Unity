@@ -33,8 +33,6 @@ public class Cauldron : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
    {
-      
-
       if(other.gameObject.GetComponent<IngredientObject>())
       {
          for(int i = 0; i< CustomerController.instance.customerObject.neededIngredients.Length; i++ )
@@ -42,7 +40,9 @@ public class Cauldron : MonoBehaviour
             if(other.gameObject.GetComponent<IngredientObject>().ingredientName == CustomerController.instance.customerObject.neededIngredients[i])
             {
                currentNumberOfIngredients += 1;
+               AudioController.instance.PlayIngredientEffect();
                Destroy(other.gameObject.GetComponent<DragAndDrop>());
+
             }
             else
             {

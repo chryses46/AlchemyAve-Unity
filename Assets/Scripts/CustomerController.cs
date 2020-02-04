@@ -37,10 +37,9 @@ public class CustomerController : MonoBehaviour
         }
     }
 
-    
-
     public void GetNewCustomer(CustomerObject shopVisitor)
     {
+        AudioController.instance.PlaySoundEffect(AudioController.instance.shopBell);
         customerObject = shopVisitor;
         customerObject.gameObject.SetActive(true);
         customerObject.FadeIn();
@@ -126,6 +125,8 @@ public class CustomerController : MonoBehaviour
 
     internal void CustomerLeft()
     {
+        AudioController.instance.PlaySoundEffect(AudioController.instance.shopBell);
+        
         customerObject = null;
 
         customerArrived = false;
