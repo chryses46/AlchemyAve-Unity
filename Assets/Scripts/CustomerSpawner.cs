@@ -25,9 +25,8 @@ public class CustomerSpawner : MonoBehaviour
     public void SpawnCustomer()
     {
         customerObjects[currentCustomer].isInShop = true;
-        CustomerController.instance.currentDialogueIteration = 0;
+        
         CustomerController.instance.GetNewCustomer(customerObjects[currentCustomer]);
-
     }
 
     void Update()
@@ -48,14 +47,11 @@ public class CustomerSpawner : MonoBehaviour
         CustomerController.instance.questComplete = false;
 
         customerObjects[currentCustomer].isInShop = false;
-        
+
         UIController.instance.DisplayDialogueBox(false);
         
         customerObjects[currentCustomer].FadeOut();
-
         
-
-        CustomerController.instance.customerObject = null;
 
         if(!waitingForCustomer)
         {

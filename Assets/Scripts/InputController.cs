@@ -21,9 +21,14 @@ public class InputController : MonoBehaviour
         {
             // basic gameplay controls here
 
-            if(Input.GetButton("Cancel"))
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
                 GameController.instance.PauseGame();
+            }
+
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                CustomerController.instance.SkipDialogueIteration();
             }
         }
 

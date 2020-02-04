@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
 
     }
 
+
     public void PauseGame()
     {
         UIController.instance.EnableGameUICanvas(false);
@@ -64,7 +66,6 @@ public class GameController : MonoBehaviour
 
     public void GoToBackOfShop()
     {
-        UIController.instance.DisplayFrontOfShop(false);
         UIController.instance.DisplayBackOfShop(true);
     }
 
@@ -105,17 +106,15 @@ public class GameController : MonoBehaviour
     public void ClosePotionWin()
     {
         UIController.instance.ShowSuccessPotionWindow(false);
+
         FindObjectOfType<Cauldron>().win = false;
+
         UIController.instance.DisplayCauldronCloseUp(false);
+
         UIController.instance.DisplayBackOfShop(false);
-        UIController.instance.DisplayFrontOfShop(true);
 
         CustomerController.instance.QuestCompleteDialogue();
     }
-        
-        
-
-
 
     private void CheckForControllers()
     {

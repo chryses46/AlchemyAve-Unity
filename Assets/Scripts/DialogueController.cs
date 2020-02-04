@@ -41,10 +41,6 @@ public class DialogueController : MonoBehaviour
 
     public void CloseDialogueBox()
     {
-        customerNameTextBox.text = "";
-        dialogueTextBox.text = "";
-        customerNameToDisplay = "";
-        dialogueTextToDisplay = "";
-        UIController.instance.DisplayDialogueBox(false); 
+        UIController.instance.DisplayDialogueBox(false);
     }
 }

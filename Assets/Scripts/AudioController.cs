@@ -5,12 +5,12 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     
+    public static AudioController instance;
+
     AudioSource audioSource;
 
     [SerializeField] AudioClip mainMenuMusic;
-    [SerializeField] AudioClip shopMusic;
-
-    public static AudioController instance;
+    [SerializeField] AudioClip shopBell;
 
     void Awake()
     {
@@ -23,13 +23,6 @@ public class AudioController : MonoBehaviour
     {
         if(audioSource.isPlaying) audioSource.Stop();
         audioSource.clip = mainMenuMusic;
-        audioSource.Play();
-    }
-
-    public void PlayShopMusic()
-    {
-        if(audioSource.isPlaying) audioSource.Stop();
-        audioSource.clip = shopMusic;
         audioSource.Play();
     }
 

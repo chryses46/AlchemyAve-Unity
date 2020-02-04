@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,19 +25,26 @@ public class CustomerController : MonoBehaviour
 
     public bool isWaiting = false;
 
+    public bool customerArrived = false;
+
+    public bool canSkipDialogue = false;
+
     public void Update()
     {
-        if(customerObject)
+        if(customerObject && customerArrived)
         {
             CheckOnCustomers();
         }
     }
 
+    
+
     public void GetNewCustomer(CustomerObject shopVisitor)
     {
         customerObject = shopVisitor;
-        
+        customerObject.gameObject.SetActive(true);
         customerObject.FadeIn();
+
         DialogueController.instance.customerNameToDisplay = customerObject.customerName;
     }
 
@@ -45,14 +53,19 @@ public class CustomerController : MonoBehaviour
         if(customerObject.customerName == "Werewolf")
         {
             if(DialogueController.instance.dialogueTextToDisplay == "" && currentDialogueIteration < customerObject.dialogueMessages.Length && !dialogueBoxAction)
-            {   
+            { 
+                canSkipDialogue = true;
+
                 if(currentDialogueIteration == 1)
                 {
+                    customerObject.GetComponent<Animator>().SetBool("isBlinking", false);
                     werewolfSweat.gameObject.SetActive(true);
                 }
                 else
                 {
                     werewolfSweat.gameObject.SetActive(false);
+                    customerObject.GetComponent<Animator>().SetBool("isBlinking", true);
+                    
                 }
                 
 
@@ -74,6 +87,9 @@ public class CustomerController : MonoBehaviour
             else if(currentDialogueIteration >= customerObject.dialogueMessages.Length)
             {
                 DialogueController.instance.CloseDialogueBox();
+
+                canSkipDialogue = false;
+
                 // engage quest book here. (in the future)
             }
             
@@ -82,6 +98,8 @@ public class CustomerController : MonoBehaviour
         {
             if(DialogueController.instance.dialogueTextToDisplay == "" && currentDialogueIteration < customerObject.dialogueMessages.Length && !dialogueBoxAction)
             {
+                canSkipDialogue = true;
+
                 DialogueController.instance.SetDialogueText(customerObject.dialogueMessages[currentDialogueIteration]);
 
                 DialogueController.instance.DialogeBoxManager();
@@ -104,17 +122,35 @@ public class CustomerController : MonoBehaviour
         }
     }
 
+    internal void CustomerLeft()
+    {
+        customerObject.gameObject.SetActive(false);
+
+        customerObject = null;
+
+        customerArrived = false;
+
+        currentDialogueIteration = 0;
+    }
+
     public void QuestCompleteDialogue()
     {
+        canSkipDialogue = true;
+
         DialogueController.instance.customerNameToDisplay = customerObject.customerName;
+
         DialogueController.instance.SetDialogueText(customerObject.questCompleteDialogue);
+
         DialogueController.instance.DialogeBoxManager();
+
         dialogueBoxAction = true;
+
         questComplete = true;
 
         if (!isWaiting)
         {
             StartCoroutine(WaitForText(4f));
+            
             isWaiting = true;
         }
     }
@@ -122,12 +158,31 @@ public class CustomerController : MonoBehaviour
     IEnumerator WaitForText(float wait)
     {
         yield return new WaitForSeconds(wait);
-        DialogueController.instance.SetDialogueText("");
-        dialogueBoxAction = false;
-        isWaiting = false;
 
-        if(currentDialogueIteration < customerObject.dialogueMessages.Length)
+        DialogueController.instance.SetDialogueText("");
+
+        dialogueBoxAction = false;
+
+        isWaiting = false;  
+
+        if(customerObject && currentDialogueIteration < customerObject.dialogueMessages.Length)
         {
+            currentDialogueIteration += 1;
+        }
+    }
+
+    public void  SkipDialogueIteration()
+    {
+        if(canSkipDialogue)
+        {
+            StopCoroutine(WaitForText(0));
+
+            DialogueController.instance.SetDialogueText("");
+
+            dialogueBoxAction = false;
+
+            isWaiting = false;
+
             currentDialogueIteration += 1;
         }
     }

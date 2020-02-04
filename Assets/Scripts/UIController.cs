@@ -67,18 +67,16 @@ public class UIController : MonoBehaviour
 
     public void DisplayDialogueBox(bool isActive)
     {
-        dialogueBox.gameObject.SetActive(isActive);
+        
         
         if(isActive)
         {
-            dialogueBox.GetComponent<Animation>().GetClip("DialogueFade");
+            dialogueBox.gameObject.SetActive(isActive);
         }
         else
         {
-            dialogueBox.GetComponent<Animation>().GetClip("DialogueFadeOut");
+            dialogueBox.GetComponent<Animator>().SetTrigger("FadeDown");
         }
-            
-        dialogueBox.GetComponent<Animation>().Play();
     }
 
     public void DisplayBackOfShop(bool isActive)

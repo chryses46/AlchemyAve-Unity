@@ -24,47 +24,35 @@ public class CustomerObject : MonoBehaviour
     void Awake()
     {
         image = GetComponent<Image>();
-        if(GetComponent<Animator>())
-        {
-            animator = GetComponent<Animator>();
-        }
+        animator = GetComponent<Animator>();
     }
     public void FadeIn()
     {
-        animator.Play("FadeIn");
-        // var alpha = image.color.a;
-        // alpha = Mathf.MoveTowards(alpha, fadeInTarget, Time.deltaTime);
-        // image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        animator.SetTrigger("FadeIn");
     }
 
     public void FadeOut()
     {
-        animator.Play("FadeOut");
-        
-        // var alpha = image.color.a;
-        // alpha = Mathf.MoveTowards(alpha, fadeOutTarget, Time.deltaTime);
-        // image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        if(customerName == "Werewolf")
+        {
+            animator.SetBool("isBlinking", false);
+        }
+
+        animator.SetTrigger("FadeOut");
     }
 
     public void SetCustomerSprite(Sprite sprite)
-    {   
+    {
         image.sprite = sprite;
     }
-
-    public Sprite GetCustomerSprite()
+    public void CustomerHasArrived()
     {
-        return image.sprite;
+        CustomerController.instance.customerArrived = true;
     }
 
-    public void StopAnimation()
+    public void CustomerHasLeft()
     {
-        image.sprite = customerImages[1];
-        animator.StopPlayback();
-        
-    }
-
-    public void StartAnimation()
-    {
-        animator.StartPlayback();
+        Debug.Log("CustomerHasLeft called");
+        CustomerController.instance.CustomerLeft();
     }
 }
