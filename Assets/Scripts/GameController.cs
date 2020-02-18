@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class GameController : MonoBehaviour
 {
@@ -10,14 +10,14 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public bool playerIndexSet = false;
-    PlayerIndex playerIndex;
-    GamePadState state;
-    GamePadState prevState;
+    // PlayerIndex playerIndex;
+    // GamePadState state;
+    // GamePadState prevState;
 
     void Awake()
     {
         instance = this;
-        CheckForControllers();
+        //CheckForControllers();
     }
 
     void Start()
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        CheckForControllers();
+        //CheckForControllers();
     }
 
     private void SetTimeScale(float scale)
@@ -115,31 +115,31 @@ public class GameController : MonoBehaviour
 
         UIController.instance.DisplayCauldronCloseUp(false);
 
-        UIController.instance.DisplayBackOfShop(false);
+        GoToFrontOfShop();
 
         CustomerController.instance.QuestCompleteDialogue();
     }
 
-    private void CheckForControllers()
-    {
-        // Find a PlayerIndex, for a single player game
-        // Will find the first controller that is connected ans use it
-        if (!playerIndexSet || !prevState.IsConnected)
-        {
-            for (int i = 0; i < 4; ++i)
-            {
-                PlayerIndex testPlayerIndex = (PlayerIndex)i;
-                GamePadState testState = GamePad.GetState(testPlayerIndex);
-                if (testState.IsConnected)
-                {
-                    playerIndex = testPlayerIndex;
-                    playerIndexSet = true;
-                }
-            }
-        }
+    // private void CheckForControllers()
+    // {
+    //     // Find a PlayerIndex, for a single player game
+    //     // Will find the first controller that is connected ans use it
+    //     if (!playerIndexSet || !prevState.IsConnected)
+    //     {
+    //         for (int i = 0; i < 4; ++i)
+    //         {
+    //             PlayerIndex testPlayerIndex = (PlayerIndex)i;
+    //             GamePadState testState = GamePad.GetState(testPlayerIndex);
+    //             if (testState.IsConnected)
+    //             {
+    //                 playerIndex = testPlayerIndex;
+    //                 playerIndexSet = true;
+    //             }
+    //         }
+    //     }
 
-        prevState = state;
-        state = GamePad.GetState(playerIndex);
-    }
+    //     prevState = state;
+    //     state = GamePad.GetState(playerIndex);
+    // }
 
 }
