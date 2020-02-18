@@ -10,6 +10,7 @@ public class AudioController : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField] AudioClip mainMenuMusic;
+    [SerializeField] AudioClip backOfShopMusic;
     public AudioClip shopBell;
     public AudioClip[] ingredientPlopSFX;
 
@@ -37,5 +38,12 @@ public class AudioController : MonoBehaviour
         int effect = Random.Range(0,3);
 
         audioSource.PlayOneShot(ingredientPlopSFX[effect]);
+    }
+
+    public void PlayBackOfShopMusic()
+    {
+        if (audioSource.isPlaying) audioSource.Stop();
+        audioSource.clip = backOfShopMusic;
+        audioSource.Play();
     }
 }

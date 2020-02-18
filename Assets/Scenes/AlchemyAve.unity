@@ -1567,7 +1567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &510514739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5292,7 +5292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1729165074
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6754,7 +6754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2006148449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7346,8 +7346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: c355f677f396e7e489f81cc451821056, type: 3}
+  backOfShopMusic: {fileID: 8300000, guid: e2777ca01eb56c34cb9398b40e14546d, type: 3}
   shopBell: {fileID: 8300000, guid: 651213a027c4ec344a66c5effc1635ee, type: 3}
-  cauldronEffect: {fileID: 8300000, guid: b80597883c1541c48964bc2532b8d327, type: 3}
   ingredientPlopSFX:
   - {fileID: 8300000, guid: bc71e5b835b16694c8b5443df221f56f, type: 3}
   - {fileID: 8300000, guid: 4e15767352a1145409ce4bc9f9853c73, type: 3}

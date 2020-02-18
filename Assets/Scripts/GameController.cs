@@ -71,12 +71,14 @@ public class GameController : MonoBehaviour
     public void GoToBackOfShop()
     {
         UIController.instance.DisplayBackOfShop(true);
+        AudioController.instance.PlayBackOfShopMusic();
     }
 
     public void GoToFrontOfShop()
     {
         UIController.instance.DisplayBackOfShop(false);
         UIController.instance.DisplayFrontOfShop(true);
+        AudioController.instance.PlayMainMenuMusic();
     }
 
     public void DisplayPotionBook()
@@ -130,7 +132,6 @@ public class GameController : MonoBehaviour
                 GamePadState testState = GamePad.GetState(testPlayerIndex);
                 if (testState.IsConnected)
                 {
-                    Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
                     playerIndex = testPlayerIndex;
                     playerIndexSet = true;
                 }
