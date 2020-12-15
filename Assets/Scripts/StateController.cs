@@ -9,7 +9,6 @@ public class StateController : MonoBehaviour
     public State gameState = State.MainMenu;
 
     public static StateController instance;
-
     void Awake()
     {
         instance = this;

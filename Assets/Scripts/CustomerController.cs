@@ -25,7 +25,7 @@ public class CustomerController : MonoBehaviour
     {
         if(customerObject)
         {
-            if(DialogueController.instance.customerNameToDisplay == "")
+            if(DialogueController.instance.customerNameToDisplay == null)
             {
                 SetCustomerName(customerObject.customerName);
             }

@@ -32,11 +32,10 @@ public class Cauldron : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
    {
       
-
       if(other.gameObject.GetComponent<IngredientObject>())
       {
 
-         Debug.Log(other.gameObject.name);
+         //Debug.Log(other.gameObject.name);
 
          for(int i = 0; i< CustomerController.instance.customerObject.neededIngredients.Length; i++ )
          {

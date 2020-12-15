@@ -16,7 +16,7 @@ public class DialogueController : MonoBehaviour
         instance = this;
     }
 
-    public string customerNameToDisplay;
+    public string customerNameToDisplay = null;
     public string dialogueTextToDisplay;
 
     public void SetCustomerNameText(string customerName)

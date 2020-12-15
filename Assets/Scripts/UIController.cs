@@ -15,8 +15,8 @@ public class UIController : MonoBehaviour
 
     public Image successPotion;
     [SerializeField] Image dialogueBox;
-    [SerializeField] Sprite gamePadStartSprite;
-    [SerializeField] Sprite gamePadCancelSprite;
+    //[SerializeField] Sprite gamePadStartSprite;
+    //[SerializeField] Sprite gamePadCancelSprite;
     [SerializeField] Sprite keyBoardStartSprite;
     [SerializeField] Sprite keyBoardCancelSprite;
     public static UIController instance;
@@ -38,8 +38,8 @@ public class UIController : MonoBehaviour
     {
         if (GameController.instance.playerIndexSet)
         {
-            currentStartSprite = gamePadStartSprite;
-            currentCancelSprite = gamePadCancelSprite;
+            // currentStartSprite = gamePadStartSprite;
+            // currentCancelSprite = gamePadCancelSprite;
         }
         else
         {
