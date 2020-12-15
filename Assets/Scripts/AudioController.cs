@@ -14,6 +14,8 @@ public class AudioController : MonoBehaviour
     public AudioClip shopBell;
     public AudioClip[] ingredientPlopSFX;
 
+    public AudioClip ingredientSound;
+
     void Awake()
     {
         instance = this;
@@ -49,10 +51,10 @@ public class AudioController : MonoBehaviour
 
     public void PlayRandomIngredientDrop()
     {
-        if (incredientSounds.Length > 0)
+        if (ingredientPlopSFX.Length > 0)
         {
-            int index = Random.Range(0, incredientSounds.Length);
-            ingredientSound = incredientSounds[index];
+            int index = Random.Range(0, ingredientPlopSFX.Length);
+            ingredientSound = ingredientPlopSFX[index];
             audioSource.clip = ingredientSound;
             audioSource.Play();
         }
