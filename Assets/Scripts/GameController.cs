@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class GameController : MonoBehaviour
 {
@@ -9,14 +10,14 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public bool playerIndexSet = false;
-    PlayerIndex playerIndex;
-    GamePadState state;
-    GamePadState prevState;
+    // PlayerIndex playerIndex;
+    // GamePadState state;
+    // GamePadState prevState;
 
     void Awake()
     {
         instance = this;
-        CheckForControllers();
+        //CheckForControllers();
     }
 
     void Start()
@@ -26,7 +27,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        CheckForControllers();
+        //CheckForControllers();
     }
 
     private void SetTimeScale(float scale)
@@ -38,8 +39,11 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         UIController.instance.EnableMainMenuUI(false);
+
         UIController.instance.EnableGameUICanvas(true);
+
         StateController.instance.gameState = StateController.State.Play;
+
         GetComponent<CustomerSpawner>().SpawnCustomer();
         
         SetTimeScale(1);
@@ -48,30 +52,33 @@ public class GameController : MonoBehaviour
 
     public void PauseGame()
     {
-        UIController.instance.EnableGameUICanvas(false);
         UIController.instance.EnablePauseMenuUICanvas(true);
+
         StateController.instance.gameState = StateController.State.Pause;
+        
         SetTimeScale(0);
     }
 
     public void UnPauseGame()
     {
         UIController.instance.EnablePauseMenuUICanvas(false);
-        UIController.instance.EnableGameUICanvas(true);
+
         StateController.instance.gameState = StateController.State.Play;
+
         SetTimeScale(1);
     }
 
     public void GoToBackOfShop()
     {
-        UIController.instance.DisplayFrontOfShop(false);
         UIController.instance.DisplayBackOfShop(true);
+        AudioController.instance.PlayBackOfShopMusic();
     }
 
     public void GoToFrontOfShop()
     {
         UIController.instance.DisplayBackOfShop(false);
         UIController.instance.DisplayFrontOfShop(true);
+        AudioController.instance.PlayMainMenuMusic();
     }
 
     public void DisplayPotionBook()
@@ -100,60 +107,39 @@ public class GameController : MonoBehaviour
             
     }
 
-    
-
     public void ClosePotionWin()
     {
         UIController.instance.ShowSuccessPotionWindow(false);
+
         FindObjectOfType<Cauldron>().win = false;
-        // reset transforms of all ingrediends
+
         UIController.instance.DisplayCauldronCloseUp(false);
-        UIController.instance.DisplayBackOfShop(false);
-        UIController.instance.DisplayFrontOfShop(true);
-        CustomerController.instance.AcceptPotionQuestCompleteDialogue();
 
-        if(!CustomerController.instance.isWaiting)
-        {
-            CustomerController.instance.QuestCompleteDialogue();
+        GoToFrontOfShop();
 
-            if(CustomerSpawner.instance.currentCustomer < CustomerSpawner.instance.customerObjects.Length)
-            {
-                CustomerSpawner.instance.currentCustomer ++;
-            }
-            else
-            { 
-                //game over
-            }
-        }
-
-        
+        CustomerController.instance.QuestCompleteDialogue();
     }
-        
-        
 
+    // private void CheckForControllers()
+    // {
+    //     // Find a PlayerIndex, for a single player game
+    //     // Will find the first controller that is connected ans use it
+    //     if (!playerIndexSet || !prevState.IsConnected)
+    //     {
+    //         for (int i = 0; i < 4; ++i)
+    //         {
+    //             PlayerIndex testPlayerIndex = (PlayerIndex)i;
+    //             GamePadState testState = GamePad.GetState(testPlayerIndex);
+    //             if (testState.IsConnected)
+    //             {
+    //                 playerIndex = testPlayerIndex;
+    //                 playerIndexSet = true;
+    //             }
+    //         }
+    //     }
 
-
-    private void CheckForControllers()
-    {
-        // Find a PlayerIndex, for a single player game
-        // Will find the first controller that is connected ans use it
-        if (!playerIndexSet || !prevState.IsConnected)
-        {
-            for (int i = 0; i < 4; ++i)
-            {
-                PlayerIndex testPlayerIndex = (PlayerIndex)i;
-                GamePadState testState = GamePad.GetState(testPlayerIndex);
-                if (testState.IsConnected)
-                {
-                    Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
-                    playerIndex = testPlayerIndex;
-                    playerIndexSet = true;
-                }
-            }
-        }
-
-        prevState = state;
-        state = GamePad.GetState(playerIndex);
-    }
+    //     prevState = state;
+    //     state = GamePad.GetState(playerIndex);
+    // }
 
 }

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerController : MonoBehaviour
 {
@@ -12,58 +14,59 @@ public class CustomerController : MonoBehaviour
         instance = this;
     }
 
+    [SerializeField] Image werewolfSweat;
+
     public CustomerObject customerObject;
 
-    int currentDialogueIteration = 0;
+    public int currentDialogueIteration = 0;
 
     public bool questComplete = false;
     public bool dialogueBoxAction = false;
 
     public bool isWaiting = false;
 
+    public bool customerArrived = false;
+
+    public bool canSkipDialogue = false;
+
     public void Update()
     {
-        if(customerObject)
+        if(customerObject && customerArrived)
         {
-            if(DialogueController.instance.customerNameToDisplay == "")
-            {
-                SetCustomerName(customerObject.customerName);
-            }
-            
             CheckOnCustomers();
-
         }
     }
 
     public void GetNewCustomer(CustomerObject shopVisitor)
     {
+        AudioController.instance.PlaySoundEffect(AudioController.instance.shopBell);
         customerObject = shopVisitor;
-    }
+        customerObject.gameObject.SetActive(true);
+        customerObject.FadeIn();
 
-    public void SetCustomerName(string customerName)
-    {
-        DialogueController.instance.SetCustomerNameText(customerName);
+        DialogueController.instance.customerNameToDisplay = customerObject.customerName;
     }
-
 
     public void CheckOnCustomers()
     {
         if(customerObject.customerName == "Werewolf")
         {
-
             if(DialogueController.instance.dialogueTextToDisplay == "" && currentDialogueIteration < customerObject.dialogueMessages.Length && !dialogueBoxAction)
-            {
+            { 
+                canSkipDialogue = true;
 
                 if(currentDialogueIteration == 1)
                 {
-                    customerObject.SetCustomerSprite(customerObject.customerImages[1]);
+                    customerObject.GetComponent<Animator>().SetBool("isBlinking", false);
+                    werewolfSweat.gameObject.SetActive(true);
                 }
-                else if(currentDialogueIteration == 2)
+                else
                 {
-                    customerObject.SetCustomerSprite(customerObject.customerImages[0]);
+                    werewolfSweat.gameObject.SetActive(false);
+                    customerObject.GetComponent<Animator>().SetBool("isBlinking", true);
+                    
                 }
-
-                SetCustomerName(customerObject.customerName);
+                
 
                 DialogueController.instance.SetDialogueText(customerObject.dialogueMessages[currentDialogueIteration]);
 
@@ -71,11 +74,11 @@ public class CustomerController : MonoBehaviour
 
                 dialogueBoxAction = true;
             }
-            else if(DialogueController.instance.dialogueTextToDisplay != "" && dialogueBoxAction)
+            else if(dialogueBoxAction)
             {
                 if(!isWaiting)
                 {
-                    StartCoroutine(WaitForText(12f));
+                    StartCoroutine(WaitForText(9f));
                     isWaiting = true;
                 }
                     
@@ -83,6 +86,10 @@ public class CustomerController : MonoBehaviour
             else if(currentDialogueIteration >= customerObject.dialogueMessages.Length)
             {
                 DialogueController.instance.CloseDialogueBox();
+
+                canSkipDialogue = false;
+
+                // engage quest book here. (in the future)
             }
             
         }
@@ -90,7 +97,7 @@ public class CustomerController : MonoBehaviour
         {
             if(DialogueController.instance.dialogueTextToDisplay == "" && currentDialogueIteration < customerObject.dialogueMessages.Length && !dialogueBoxAction)
             {
-                SetCustomerName(customerObject.customerName);
+                canSkipDialogue = true;
 
                 DialogueController.instance.SetDialogueText(customerObject.dialogueMessages[currentDialogueIteration]);
 
@@ -102,7 +109,7 @@ public class CustomerController : MonoBehaviour
             {
                 if(!isWaiting)
                 {
-                    StartCoroutine(WaitForText(12f));
+                    StartCoroutine(WaitForText(9f));
                     isWaiting = true;
                 }
                     
@@ -110,36 +117,41 @@ public class CustomerController : MonoBehaviour
             else if(currentDialogueIteration >= customerObject.dialogueMessages.Length)
             {
                 DialogueController.instance.CloseDialogueBox();
+                
+                canSkipDialogue = false;
             }
         }
     }
 
-    public void AcceptPotionQuestCompleteDialogue()
+    internal void CustomerLeft()
     {
-        DialogueController.instance.SetDialogueText(customerObject.potionAcceptDialogue);
-        DialogueController.instance.DialogeBoxManager();
+        AudioController.instance.PlaySoundEffect(AudioController.instance.shopBell);
+        
+        customerObject = null;
 
-        if (!isWaiting)
-        {
-            StartCoroutine(WaitForText(3f));
-            isWaiting = true;
-        }
+        customerArrived = false;
 
-        DialogueController.instance.CloseDialogueBox();
-        questComplete = true;
-
+        currentDialogueIteration = 0;
     }
 
     public void QuestCompleteDialogue()
     {
+        canSkipDialogue = true;
+
+        DialogueController.instance.customerNameToDisplay = customerObject.customerName;
+
         DialogueController.instance.SetDialogueText(customerObject.questCompleteDialogue);
 
         DialogueController.instance.DialogeBoxManager();
-        Debug.Log(customerObject.questCompleteDialogue);
+
+        dialogueBoxAction = true;
+
+        questComplete = true;
 
         if (!isWaiting)
         {
-            StartCoroutine(WaitForText(12f));
+            StartCoroutine(WaitForText(4f));
+
             isWaiting = true;
         }
     }
@@ -147,23 +159,53 @@ public class CustomerController : MonoBehaviour
     IEnumerator WaitForText(float wait)
     {
         yield return new WaitForSeconds(wait);
+
         DialogueController.instance.SetDialogueText("");
+
         dialogueBoxAction = false;
-        isWaiting = false;
-        if(customerObject)
+
+        isWaiting = false;  
+
+        if(customerObject && currentDialogueIteration < customerObject.dialogueMessages.Length)
         {
-          if(currentDialogueIteration < customerObject.dialogueMessages.Length)
-            {
-                currentDialogueIteration += 1;
-            }  
+            currentDialogueIteration += 1;
         }
-        
-        
+    }
+
+    public void  SkipDialogueIteration()
+    {
+        if(canSkipDialogue)
+        {
+            StopCoroutine(WaitForText(0));
+
+            DialogueController.instance.SetDialogueText("");
+
+            dialogueBoxAction = false;
+
+            isWaiting = false;
+
+            currentDialogueIteration += 1;
+        }
     }
 
 
-    // pass in the customer object (array?)
+    // public void AcceptPotionQuestCompleteDialogue()
+    // {
+    //     DialogueController.instance.customerNameToDisplay = customerObject.customerName;
+    //     DialogueController.instance.SetDialogueText(customerObject.potionAcceptDialogue);
+    //     DialogueController.instance.DialogeBoxManager();
+    //     dialogueBoxAction = true;
 
-    // begin customer interact sequence
-        // set first  sprite    
+    //     if (!isWaiting)
+    //     {
+    //         StartCoroutine(WaitForText(3f));
+    //         isWaiting = true;
+    //     }
+
+    //     DialogueController.instance.CloseDialogueBox();
+    //     questComplete = true;
+
+    // }
+
+     
 }

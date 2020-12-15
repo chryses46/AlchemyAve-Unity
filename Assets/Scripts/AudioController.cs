@@ -5,14 +5,14 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     
+    public static AudioController instance;
+
     AudioSource audioSource;
 
     [SerializeField] AudioClip mainMenuMusic;
-    [SerializeField] AudioClip shopMusic;
-    private AudioClip ingredientSound;
-    [SerializeField] AudioClip[] incredientSounds;
-
-    public static AudioController instance;
+    [SerializeField] AudioClip backOfShopMusic;
+    public AudioClip shopBell;
+    public AudioClip[] ingredientPlopSFX;
 
     void Awake()
     {
@@ -28,16 +28,23 @@ public class AudioController : MonoBehaviour
         audioSource.Play();
     }
 
-    public void PlayShopMusic()
-    {
-        if(audioSource.isPlaying) audioSource.Stop();
-        audioSource.clip = shopMusic;
-        audioSource.Play();
-    }
-
     public void PlaySoundEffect(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayIngredientEffect()
+    {
+        int effect = Random.Range(0,3);
+
+        audioSource.PlayOneShot(ingredientPlopSFX[effect]);
+    }
+
+    public void PlayBackOfShopMusic()
+    {
+        if (audioSource.isPlaying) audioSource.Stop();
+        audioSource.clip = backOfShopMusic;
+        audioSource.Play();
     }
 
     public void PlayRandomIngredientDrop()

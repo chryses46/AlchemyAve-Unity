@@ -13,9 +13,9 @@ public class CustomerObject : MonoBehaviour
     public string questCompleteDialogue;
     public string[] neededIngredients;
 
-    Animation anim;
-
     public bool isInShop = false;
+
+    Animator animator;
 
     Image image;
     float fadeInTarget = 255;
@@ -24,38 +24,34 @@ public class CustomerObject : MonoBehaviour
     void Awake()
     {
         image = GetComponent<Image>();
-        anim = GetComponent<Animation>();
+        animator = GetComponent<Animator>();
     }
-
-    void Update()
+    public void FadeIn()
     {
-        if(isInShop)
-            FadeUp();
-    }
-
-    public void FadeUp()
-    {
-        var alpha = image.color.a;
-        alpha = Mathf.MoveTowards(alpha, fadeInTarget, Time.deltaTime);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        animator.SetTrigger("FadeIn");
     }
 
     public void FadeOut()
     {
-        var alpha = image.color.a;
-        alpha = Mathf.MoveTowards(alpha, fadeOutTarget, Time.deltaTime);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        if(customerName == "Werewolf")
+        {
+            animator.SetBool("isBlinking", false);
+        }
 
-        isInShop = false;
+        animator.SetTrigger("FadeOut");
     }
 
     public void SetCustomerSprite(Sprite sprite)
-    {   
+    {
         image.sprite = sprite;
     }
-
-    public Sprite GetCustomerSprite()
+    public void CustomerHasArrived()
     {
-        return image.sprite;
+        CustomerController.instance.customerArrived = true;
+    }
+
+    public void CustomerHasLeft()
+    {
+        CustomerController.instance.CustomerLeft();
     }
 }

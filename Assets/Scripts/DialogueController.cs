@@ -19,11 +19,6 @@ public class DialogueController : MonoBehaviour
     public string customerNameToDisplay;
     public string dialogueTextToDisplay;
 
-    public void SetCustomerNameText(string customerName)
-    {
-        customerNameToDisplay = customerName;
-    }
-
     public void SetDialogueText(string dialogueText)
     {
         dialogueTextToDisplay = dialogueText;
@@ -46,10 +41,6 @@ public class DialogueController : MonoBehaviour
 
     public void CloseDialogueBox()
     {
-        customerNameTextBox.text = null;
-        dialogueTextBox.text = null;
-        customerNameToDisplay = null;
-        dialogueTextToDisplay = null;
-        UIController.instance.DisplayDialogueBox(false); 
+        UIController.instance.DisplayDialogueBox(false);
     }
 }

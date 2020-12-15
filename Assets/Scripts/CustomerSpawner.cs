@@ -7,6 +7,8 @@ public class CustomerSpawner : MonoBehaviour
 {
     public CustomerObject[] customerObjects;
 
+    [SerializeField] float timeUntilNextCustomer = 5;
+
     public bool customerInShop = false;
 
     public static CustomerSpawner instance;
@@ -19,12 +21,12 @@ public class CustomerSpawner : MonoBehaviour
     }
 
     public int currentCustomer = 0;
+
     public void SpawnCustomer()
     {
         customerObjects[currentCustomer].isInShop = true;
-        customerInShop = true;
+        
         CustomerController.instance.GetNewCustomer(customerObjects[currentCustomer]);
-
     }
 
     void Update()
@@ -34,7 +36,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private void WaitForQuestComplete()
     {
-        if(CustomerController.instance.questComplete)
+        if(CustomerController.instance.questComplete && !CustomerController.instance.isWaiting)
         {
             DespawnCustomer();
         }
@@ -42,8 +44,15 @@ public class CustomerSpawner : MonoBehaviour
 
     private void DespawnCustomer()
     {
+        CustomerController.instance.questComplete = false;
+
+        customerObjects[currentCustomer].isInShop = false;
+
+        UIController.instance.DisplayDialogueBox(false);
+        
         customerObjects[currentCustomer].FadeOut();
-        CustomerController.instance.customerObject = null;
+        
+
         if(!waitingForCustomer)
         {
            StartCoroutine(WaitForCustomer()); 
@@ -55,9 +64,23 @@ public class CustomerSpawner : MonoBehaviour
     IEnumerator WaitForCustomer()
     {
     
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(timeUntilNextCustomer);
         waitingForCustomer = false;
-        customerInShop = false;
+        AttemptToSpawnCustomer();
         
+    }
+
+    private void AttemptToSpawnCustomer()
+    {
+        if(currentCustomer + 1 >= customerObjects.Length)
+        {
+            // Day is over
+
+        }
+        else
+        {
+            currentCustomer ++;
+            SpawnCustomer();
+        }
     }
 }
